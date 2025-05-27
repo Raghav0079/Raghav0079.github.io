@@ -4,36 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raghav Mishra - Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Inline CSS for Red and Black Theme */
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
+            background-color: #000;
+            color: #fff;
         }
+
+        /* Header */
         header {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(90deg, #ff0000, #000); /* Red to black gradient */
+            background: linear-gradient(90deg, #ff0000, #000);
             color: #fff;
         }
         header h1 {
             font-size: 2.5em;
             margin: 0;
         }
+
+        /* Navigation */
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            background-color: #ff0000; /* Red background */
+            background-color: #ff0000;
             margin: 0;
         }
         nav ul li {
-            margin: 0 15px;
+            margin: 10px 15px;
         }
         nav ul li a {
             text-decoration: none;
@@ -42,27 +49,78 @@
             transition: color 0.3s;
         }
         nav ul li a:hover {
-            color: #000; /* Black text on hover */
+            color: #000;
         }
+
+        /* Sections */
         section {
-            padding: 40px 20px;
+            padding: 30px 20px;
             margin: 20px auto;
-            max-width: 800px;
-            border: 2px solid #ff0000; /* Red border */
+            max-width: 90%;
+            border: 2px solid #ff0000;
             border-radius: 10px;
-            background-color: #111; /* Darker black for contrast */
+            background-color: #111;
         }
         section h2 {
-            color: #ff0000; /* Red headings */
+            color: #ff0000;
             text-align: center;
             margin-bottom: 20px;
         }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 10px 0;
-            background-color: #111; /* Darker black */
-            color: #ff0000; /* Red text */
+            background-color: #111;
+            color: #ff0000;
             font-size: 0.9em;
+        }
+
+        /* Responsive Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ff0000;
+            text-align: center;
+        }
+        thead tr {
+            background-color: #ff0000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            section {
+                padding: 20px 10px;
+            }
+            th, td {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            section h2 {
+                font-size: 1.2em;
+            }
+            td, th {
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
@@ -71,7 +129,7 @@
         <h1>Welcome to My Portfolio</h1>
         <nav>
             <ul>
-                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#certifications">Certificates</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#tools">Tools</a></li>
@@ -79,76 +137,40 @@
             </ul>
         </nav>
     </header>
+
     <main>
         <section id="about">
             <h2>About Me</h2>
             <p>Hey there! My name is <strong>Raghav Mishra</strong>, an Artificial Intelligence engineer enthusiast. I am pursuing a Bachelor's of Technology (Honours) from Sage University, Indore. I like to work in the fields of <strong>Data Analysis</strong>, <strong>Data Visualization</strong>, and <strong>Machine Learning</strong>.</p>
         </section>
+
         <section id="certifications">
             <h2>Certifications</h2>
             <ul>
-                <li>
-                    <h3><a href="https://verify.netcredential.com/roy8bxzK4u" target="_blank">Samatrix</a></h3>
-                </li>
-                <li>
-                    <h3><a href="https://www.hackerrank.com/certificates/iframe/af7afb725d42" target="_blank"> HackerRank SQL </a></h3>
-                </li>
-                <li> <h3><a href="https://www.hackerrank.com/certificates/816f406b8738" target="_blank">HackerRank Python</a></h3></li>
-                <li>
-                    <h3><a href="https://www.udemy.com/certificate/UC-86a09122-3249-4cb9-ac15-89df625341b1/" target="_blank">Python for Data Analysis </a></h3>
-                </li>
-                <li>
-                    <h3><a href="https://www.udemy.com/certificate/UC-27a67d39-7cae-45e8-ac47-8809d6dc7c95/" target="_blank">Python for Machine Learning </a></h3>
-                </li>
+                <li><h3><a href="https://verify.netcredential.com/roy8bxzK4u" target="_blank">Samatrix</a></h3></li>
+                <li><h3><a href="https://www.hackerrank.com/certificates/iframe/af7afb725d42" target="_blank">HackerRank SQL</a></h3></li>
+                <li><h3><a href="https://www.hackerrank.com/certificates/816f406b8738" target="_blank">HackerRank Python</a></h3></li>
+                <li><h3><a href="https://www.udemy.com/certificate/UC-86a09122-3249-4cb9-ac15-89df625341b1/" target="_blank">Python for Data Analysis</a></h3></li>
+                <li><h3><a href="https://www.udemy.com/certificate/UC-27a67d39-7cae-45e8-ac47-8809d6dc7c95/" target="_blank">Python for Machine Learning</a></h3></li>
             </ul>
         </section>
+
         <section id="projects">
             <h2>Projects</h2>
             <ul>
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/EDA" target="_blank">Exploratory Data Analysis (EDA)</a></h3>
-                    <p>A project focused on analyzing datasets to uncover patterns, trends, and insights using Python.</p>
-                </li>
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/EDA2" target="_blank">Data analysis repository 2</a></h3>
-                    <p>Demonstration of different trends and patterns on various datasets using Python and Power BI.</p>
-                </li>
-
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/TITANIC-POWER-BI-PLOTS" target="_blank">Titanic Power BI Plots</a></h3>
-                    <p>Visualization of the Titanic dataset using Power BI to create interactive and insightful dashboards.</p>
-                </li>
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/House-Price-Prediction-" target="_blank">House Price Prediction</a></h3>
-                    <p>A machine learning project to predict house prices based on various features using regression models.</p>
-                </li>
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/ML-BEGINNER" target="_blank">Machine Learning Beginner Projects</a></h3>
-                    <p>A collection of beginner-level machine learning projects to understand the basics of ML algorithms.</p>
-                </li>
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/Natural-Language-Processing-" target="_blank">Natural Language Processing (NLP)</a></h3>
-                    <p>Projects exploring NLP techniques such as text classification, sentiment analysis, and more.</p>
-                </li>
-                
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/Unsupervised-ML-" target="_blank">Unsupervised ML</a></h3>
-                    <p>A project demonstrating clustering and dimensionality reduction techniques in machine learning.</p>
-                </li>
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/Advanced-ML-NLP" target="_blank">Advanced ML & NLP</a></h3>
-                    <p>A project demonstrating advanced techniques in machine learning and natural language processing.</p>
-                </li>
-                li>
-                    <h3><a href="https://github.com/Raghav0079/nftRenting-core-sage" target="_blank">NFTRenting </a></h3>
-                    <p>Core DAO project using on web3 using blockchain .</p>
-                </li>
-                <li>
-                    <h3><a href="https://github.com/Raghav0079/escrow-core" target="_blank">Escrow-Core</a></h3>
-                    <p>Core DAO project using on web3 using blockchain .</p>
-                </li>
+                <li><h3><a href="https://github.com/Raghav0079/EDA" target="_blank">Exploratory Data Analysis (EDA)</a></h3><p>Analyzing datasets to uncover patterns and insights using Python.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/EDA2" target="_blank">Data Analysis Repository 2</a></h3><p>Trends and patterns using Python and Power BI.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/TITANIC-POWER-BI-PLOTS" target="_blank">Titanic Power BI Plots</a></h3><p>Visualization of Titanic dataset using Power BI.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/House-Price-Prediction-" target="_blank">House Price Prediction</a></h3><p>Predicting house prices using regression models.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/ML-BEGINNER" target="_blank">Machine Learning Beginner Projects</a></h3><p>Beginner-level ML project collection.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/Natural-Language-Processing-" target="_blank">Natural Language Processing (NLP)</a></h3><p>Text classification, sentiment analysis, and more.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/Unsupervised-ML-" target="_blank">Unsupervised ML</a></h3><p>Clustering and dimensionality reduction techniques.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/Advanced-ML-NLP" target="_blank">Advanced ML & NLP</a></h3><p>Advanced ML and NLP techniques.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/nftRenting-core-sage" target="_blank">NFTRenting</a></h3><p>Web3 DAO project using blockchain.</p></li>
+                <li><h3><a href="https://github.com/Raghav0079/escrow-core" target="_blank">Escrow-Core</a></h3><p>Another Web3 DAO project using blockchain.</p></li>
             </ul>
         </section>
+
         <section id="skills">
             <h2>Skills</h2>
             <ul>
@@ -157,87 +179,75 @@
                 <li><strong>C++:</strong> Beginner</li>
             </ul>
         </section>
-       
-<section id="tools">
-    <h2>Tools</h2>
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-        <thead>
-            <tr style="background-color: #ff0000;">
-                <th style="padding: 12px; border: 2px solid #ff0000; text-align: center;" colspan="2">Data Analysis & Development Tools</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Microsoft Excel</td>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Microsoft Power BI</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">GitHub</td>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Visual Studio Code</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-        <thead>
-            <tr style="background-color: #ff0000;">
-                <th style="padding: 12px; border: 2px solid #ff0000; text-align: center;" colspan="2">AI & Machine Learning Tools</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Anaconda</td>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Google Colab </td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Kaggle</td>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Hugging Face</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Langchain</td>
-                <td style="padding: 10px; border: 1px solid #ff0000; text-align: center;">Langflow</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+        <section id="tools">
+            <h2>Tools</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Data Analysis & Development Tools</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Microsoft Excel</td>
+                        <td>Microsoft Power BI</td>
+                    </tr>
+                    <tr>
+                        <td>GitHub</td>
+                        <td>Visual Studio Code</td>
+                    </tr>
+                </tbody>
+            </table>
 
-<section id="huggingface-space">
-    <h2>Hugging Face Space</h2>
-    <p>Explore Chatbot integrated with Google Flan T5 large on my space:</p>
-    <p>
-        <a href="https://huggingface.co/spaces/Raghav81/google-flan-t5-large" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">
-            Visit My Hugging Face Space
-        </a>
-    </p>
-</section>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">AI & Machine Learning Tools</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Anaconda</td>
+                        <td>Google Colab</td>
+                    </tr>
+                    <tr>
+                        <td>Kaggle</td>
+                        <td>Hugging Face</td>
+                    </tr>
+                    <tr>
+                        <td>Langchain</td>
+                        <td>Langflow</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-<section id="github-profile">
-    <h2>GitHub Profile</h2>
-    <p>Explore my projects and contributions on GitHub:</p>
-    <p>
-        <a href="https://github.com/Raghav0079" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">
-            Visit My GitHub Profile
-        </a>
-    </p>
-</section>
-<section id="kaggle profile">
-    <h2>Kaggle Profile</h2>
-    <p>Explore my notebooks on Kaggle :</p>
-    <p>
-        <a href="https://www.kaggle.com/raghav0079" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">
-            Visit My Kaggle  Profile
-        </a>
-    </p>
-</section>
+        <section id="huggingface-space">
+            <h2>Hugging Face Space</h2>
+            <p>Explore Chatbot integrated with Google Flan T5 large on my space:</p>
+            <p><a href="https://huggingface.co/spaces/Raghav81/google-flan-t5-large" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">Visit My Hugging Face Space</a></p>
+        </section>
 
+        <section id="github-profile">
+            <h2>GitHub Profile</h2>
+            <p>Explore my projects and contributions on GitHub:</p>
+            <p><a href="https://github.com/Raghav0079" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">Visit My GitHub Profile</a></p>
+        </section>
 
+        <section id="kaggle-profile">
+            <h2>Kaggle Profile</h2>
+            <p>Explore my notebooks on Kaggle:</p>
+            <p><a href="https://www.kaggle.com/raghav0079" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">Visit My Kaggle Profile</a></p>
+        </section>
 
-<section id="contact">
-    <h2>Contact Information</h2>
-    <p>Phone: <strong>8878057977</strong></p>
-    <p>Email: <strong><a href="mailto:raghav051006@gmail.com">raghav051006@gmail.com</a></strong></p>
-</section>
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>Phone: <strong>8878057977</strong></p>
+            <p>Email: <strong><a href="mailto:raghav051006@gmail.com" style="color: #ff0000;">raghav051006@gmail.com</a></strong></p>
+        </section>
     </main>
+
     <footer>
         <p>&copy; 2025 Raghav Mishra</p>
     </footer>
