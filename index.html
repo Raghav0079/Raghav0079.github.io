@@ -66,6 +66,15 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        section ul {
+            line-height: 1.6;
+        }
+        section ul li {
+            margin-bottom: 10px;
+        }
+        section p {
+            line-height: 1.6;
+        }
 
         /* Footer */
         footer {
@@ -83,12 +92,18 @@
             margin: 20px 0;
         }
         th, td {
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ff0000;
             text-align: center;
         }
         thead tr {
             background-color: #ff0000;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #222;
+        }
+        tbody tr:hover {
+            background-color: #333;
         }
 
         /* Responsive Design */
@@ -126,14 +141,17 @@
 </head>
 <body>
     <header>
-    <h1>Raghav Mishra</h1>
-    <p style="font-size:1.2em; margin-top:8px;">Artificial Intelligence Engineer | Data Analyst | ML Enthusiast</p>
+        <h1>Raghav Mishra</h1>
+        <p style="font-size:1.2em; margin-top:8px;">Artificial Intelligence Engineer | Data Analyst | ML Enthusiast</p>
         <nav>
             <ul>
+                <li><a href="#about">About</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#tools">Tools</a></li>
+                <li><a href="#huggingface-space-chatbot">HF Spaces</a></li>
+                <li><a href="#github-profile">Profiles</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -203,8 +221,8 @@
                     <tr>
                         <td>Trae.ai</td>
                         <td>Visual Studio Code</td>
-                        <td></td>
-                        <td></td>
+                        <td>Jupyter Notebook</td>
+                        <td>Postman</td>
                     </tr>
                 </tbody>
             </table>
@@ -251,12 +269,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2">Research  Tools</th>
+                        <th colspan="2">Research Tools</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Latex</td>
+                        <td>LaTeX</td>
                         <td>Connected Papers</td>
                     </tr>
                     <tr>
@@ -286,13 +304,16 @@
         </section>
 
         <section id="github-profile">
-            <h2>GitHub & Kaggle Profiles</h2>
+            <h2>Professional Profiles</h2>
             <ul>
                 <li>
                     <strong>GitHub:</strong> <a href="https://github.com/Raghav0079" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">Raghav0079</a>
                 </li>
                 <li>
                     <strong>Kaggle:</strong> <a href="https://www.kaggle.com/raghav0079" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">raghav0079</a>
+                </li>
+                <li>
+                    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/raghav-mishra" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">Connect with me</a>
                 </li>
             </ul>
         </section>
@@ -307,7 +328,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Raghav Mishra</p>
+        <p>&copy; 2025 Raghav Mishra. All rights reserved.</p>
     </footer>
 </body>
 </html>
