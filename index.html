@@ -75,6 +75,21 @@
         section p {
             line-height: 1.6;
         }
+        
+        /* Links styling */
+        a {
+            color: #ff0000;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #ff4444;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
 
         /* Footer */
         footer {
@@ -136,6 +151,32 @@
             td, th {
                 font-size: 0.8em;
             }
+            section {
+                max-width: 95%;
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            opacity: 0.7;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background-color: #cc0000;
+            opacity: 1;
         }
     </style>
 </head>
@@ -178,13 +219,12 @@
             <h2>Projects</h2>
             <ul>
                 <li><a href="https://github.com/Raghav0079/LLM-Finetuner" target="_blank"><strong>LLM Finetuner Application</strong></a> – Gradio app for LLM finetuning using Unsloth Library on Colab GPUs.</li>
-                <li><a href="https://github.com/Raghav0079/Clustering" target="_blank"><strong>Results Interface</strong></a> – A streamlit application for direct clustering  results on the datasets.</li>
+                <li><a href="https://github.com/Raghav0079/Clustering" target="_blank"><strong>Results Interface</strong></a> – A Streamlit application for direct clustering results on the datasets.</li>
                 <li><a href="https://github.com/Raghav0079/LLM-finetuning" target="_blank"><strong>LLM Finetuning (Unsloth)</strong></a> – Efficient LLM customization with Unsloth & Hugging Face.</li>
-                <li><a href="https://github.com/Raghav0079/GPipe-Model-" target="_blank"><strong>GPipe Model </strong></a> – Replicated the GPipe model on CIFAR-10 dataset.</li>
+                <li><a href="https://github.com/Raghav0079/GPipe-Model-" target="_blank"><strong>GPipe Model</strong></a> – Replicated the GPipe model on CIFAR-10 dataset.</li>
                 <li><a href="https://github.com/Raghav0079/ML-BEGINNER" target="_blank"><strong>ML Beginner Projects</strong></a> – Collection for ML beginners.</li>
-                <li><a href="https://github.com/Raghav0079/ML-Uncovering-patterns" target="_blank"><strong>Machine Learning(Unsupervised)</strong></a> - A project focusing on Unsupervised ML algorithms specifically Clustering.</li>
-                
-
+                <li><a href="https://github.com/Raghav0079/ML-Uncovering-patterns" target="_blank"><strong>Machine Learning (Unsupervised)</strong></a> – A project focusing on Unsupervised ML algorithms specifically Clustering.</li>
+                <li><a href="https://github.com/Raghav0079/Natural-Language-Processing-" target="_blank"><strong>Natural Language Processing (NLP)</strong></a> – Text classification, sentiment analysis, etc.</li>
             </ul>
         </section>
 
@@ -196,12 +236,13 @@
                 <li><strong>NoSQL:</strong> Advanced</li>
                 <li><strong>C/C++:</strong> Intermediate</li>
                 <li><strong>Julia:</strong> Intermediate</li>
-
+                <li><strong>R:</strong> Beginner</li>
             </ul>
         </section>
 
         <section id="tools">
             <h2>Tools</h2>
+            
             <table>
                 <thead>
                     <tr>
@@ -212,12 +253,16 @@
                     <tr>
                         <td>Microsoft Excel</td>
                         <td>Microsoft Power BI</td>
+                    </tr>
+                    <tr>
                         <td>GitHub</td>
                         <td>Jira</td>
                     </tr>
                     <tr>
                         <td>Trae.ai</td>
                         <td>Visual Studio Code</td>
+                    </tr>
+                    <tr>
                         <td>Jupyter Notebook</td>
                         <td>Postman</td>
                     </tr>
@@ -263,6 +308,7 @@
                     </tr>
                 </tbody>
             </table>
+            
             <table>
                 <thead>
                     <tr>
@@ -286,7 +332,19 @@
             </table>
         </section>
         
-
+        <section id="huggingface-space-chatbot">
+            <h2>Hugging Face Spaces</h2>
+            <ul>
+                <li>
+                    <strong>Chatbot (Google Flan T5 Large):</strong>
+                    <a href="https://huggingface.co/spaces/Raghav81/google-flan-t5-large" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">Try the Chatbot</a>
+                </li>
+                <li>
+                    <strong>Text-to-Image Generation:</strong>
+                    <a href="https://huggingface.co/spaces/Raghav81/T1" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">Try Text-to-Image</a>
+                </li>
+            </ul>
+        </section>
 
         <section id="github-profile">
             <h2>Professional Profiles</h2>
@@ -315,5 +373,33 @@
     <footer>
         <p>&copy; 2025 Raghav Mishra. All rights reserved.</p>
     </footer>
+    
+    <!-- Back to top button -->
+    <button class="back-to-top" onclick="scrollToTop()" title="Back to top">↑</button>
+    
+    <script>
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        // Initially hide the button
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.back-to-top').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
