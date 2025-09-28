@@ -105,20 +105,32 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            table-layout: fixed;
+            border: 2px solid #ff0000;
         }
         th, td {
             padding: 12px;
             border: 1px solid #ff0000;
             text-align: center;
+            word-wrap: break-word;
+            overflow: hidden;
+            vertical-align: middle;
         }
         thead tr {
             background-color: #ff0000;
+        }
+        thead th {
+            color: #fff;
+            font-weight: bold;
         }
         tbody tr:nth-child(even) {
             background-color: #222;
         }
         tbody tr:hover {
             background-color: #333;
+        }
+        tbody td {
+            color: #fff;
         }
 
         /* Responsive Design */
@@ -150,9 +162,13 @@
             }
             td, th {
                 font-size: 0.8em;
+                padding: 8px;
             }
             section {
                 max-width: 95%;
+            }
+            table {
+                font-size: 0.9em;
             }
         }
         
@@ -246,25 +262,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2">Data Analysis & Development Tools</th>
+                        <th colspan="2">Data Analysis  Tools</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Microsoft Excel</td>
                         <td>Microsoft Power BI</td>
-                    </tr>
-                    <tr>
-                        <td>GitHub</td>
-                        <td>Jira</td>
-                    </tr>
-                    <tr>
-                        <td>Trae.ai</td>
-                        <td>Visual Studio Code</td>
-                    </tr>
-                    <tr>
-                        <td>Jupyter Notebook</td>
-                        <td>Postman</td>
                     </tr>
                 </tbody>
             </table>
