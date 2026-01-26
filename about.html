@@ -139,7 +139,6 @@
             border-radius: 50%;
             border: 4px solid #ff0066;
             box-shadow: 0 0 20px rgba(255, 0, 102, 0.3);
-            object-fit: cover;
             flex-shrink: 0;
             transition: all 0.3s ease;
             background: linear-gradient(45deg, #ff0066, #6600ff);
@@ -148,21 +147,27 @@
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             position: relative;
+            overflow: hidden;
         }
         
-        .profile-picture::before {
-            content: 'RM';
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
             position: absolute;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 1;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            opacity: 0;
             transition: opacity 0.3s ease;
         }
         
-        .profile-picture.loaded::before {
-            opacity: 0;
+        .profile-picture img.loaded {
+            opacity: 1;
         }
         
         .profile-picture:hover {
@@ -553,11 +558,9 @@
             <div class="about-text slide-in-left">
                 <div class="profile-section">
                     <div class="profile-picture" id="profilePicture">
-                        <img src="https://drive.google.com/thumbnail?id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g&sz=w300-h300" 
+                        RM
+                        <img id="profileImg" 
                              alt="Raghav Mishra Profile Picture" 
-                             style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; position: relative; z-index: 2;"
-                             onload="this.parentElement.classList.add('loaded');"
-                             onerror="this.style.display='none'; console.log('Image failed to load');"
                              loading="eager">
                     </div>
                     <div class="profile-content">
@@ -795,53 +798,42 @@
             observer.observe(el);
         });
 
-        // Enhanced profile picture loading
+        // Simple and reliable profile picture loading
         document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.getElementById('profileImg');
             const profileContainer = document.getElementById('profilePicture');
-            const profileImg = profileContainer?.querySelector('img');
             
             if (profileImg && profileContainer) {
-                // Multiple Google Drive URL formats to try
-                const imageUrls = [
-                    'https://drive.google.com/thumbnail?id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g&sz=w300-h300',
-                    'https://lh3.googleusercontent.com/d/1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g=w300-h300',
-                    'https://drive.google.com/uc?export=view&id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g',
-                    'https://drive.google.com/file/d/1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g/view?usp=sharing'
-                ];
+                console.log('Setting up profile picture loading...');
                 
-                let currentUrlIndex = 0;
-                
-                function tryNextUrl() {
-                    if (currentUrlIndex < imageUrls.length) {
-                        console.log(`Trying URL ${currentUrlIndex + 1}: ${imageUrls[currentUrlIndex]}`);
-                        profileImg.src = imageUrls[currentUrlIndex];
-                        currentUrlIndex++;
-                    } else {
-                        console.log('All image URLs failed, keeping placeholder');
-                        profileImg.style.display = 'none';
-                    }
-                }
-                
-                profileImg.onerror = function() {
-                    console.log('Image load failed, trying next URL...');
-                    setTimeout(tryNextUrl, 500); // Small delay before trying next URL
-                };
-                
+                // Try to load the image
                 profileImg.onload = function() {
                     console.log('Profile picture loaded successfully!');
-                    profileContainer.classList.add('loaded');
+                    this.classList.add('loaded');
                 };
                 
-                // Start with first URL
-                tryNextUrl();
+                profileImg.onerror = function() {
+                    console.log('Failed to load profile picture, keeping placeholder');
+                };
                 
-                // Fallback: if no image loads after 10 seconds, ensure placeholder is visible
+                // Set the image source - trying the most reliable Google Drive format
+                profileImg.src = 'https://drive.google.com/thumbnail?id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g&sz=w400-h400';
+                
+                // Backup attempt after 3 seconds if first fails
                 setTimeout(() => {
-                    if (!profileContainer.classList.contains('loaded')) {
-                        console.log('Using initials placeholder');
-                        profileImg.style.display = 'none';
+                    if (!profileImg.classList.contains('loaded')) {
+                        console.log('Trying alternative URL...');
+                        profileImg.src = 'https://lh3.googleusercontent.com/d/1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g=s400-c';
                     }
-                }, 10000);
+                }, 3000);
+                
+                // Final backup after 6 seconds
+                setTimeout(() => {
+                    if (!profileImg.classList.contains('loaded')) {
+                        console.log('Trying final URL format...');
+                        profileImg.src = 'https://drive.google.com/uc?export=view&id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g';
+                    }
+                }, 6000);
             }
         });
     </script>
