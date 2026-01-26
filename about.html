@@ -265,33 +265,141 @@
             transform: scale(1.1);
         }
 
-        /* Responsive design */
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .about-container {
                 grid-template-columns: 1fr;
+                padding: 20px;
             }
 
             .page-title {
                 font-size: 2rem;
+                margin-bottom: 30px;
             }
 
             .header-content {
                 flex-direction: column;
                 gap: 15px;
+                padding: 15px;
             }
 
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 10px;
+            }
+            
+            nav ul li a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .tools-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
 
             .tool-list {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+            
+            .tool-item {
+                padding: 15px 10px;
+                font-size: 0.85rem;
+                min-height: 50px;
+            }
+            
+            .about-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header-content {
+                padding: 10px;
+            }
+            
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav ul li a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+                border-radius: 15px;
+            }
+            
+            .page-title {
+                font-size: 1.7rem;
+                margin-bottom: 25px;
+            }
+            
+            .about-container {
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .tools-grid {
+                gap: 20px;
+            }
+            
+            .tool-list {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .tool-item {
+                padding: 12px 8px;
+                font-size: 0.8rem;
+                min-height: 44px;
+            }
+            
+            .about-text {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (pointer: coarse) {
+            nav ul li a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .tool-item {
+                min-height: 44px;
+                min-width: 44px;
+                cursor: pointer;
+            }
+        }
+        
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
 
