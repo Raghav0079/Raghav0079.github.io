@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Raghav Mishra | AI Researcher & Developer</title>
+    <meta name="description" content="Learn about Raghav Mishra - AI researcher and developer with expertise in Machine Learning, Deep Learning, data analysis, and model development. Passionate about research-driven innovation.">
+    <meta name="keywords" content="about Raghav Mishra, AI researcher, machine learning expert, deep learning, data analysis, Python developer">
+    <meta name="author" content="Raghav Mishra">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000, #1a0033, #000000);
+            color: white;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff0066;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        /* Canvas container */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff0066;
+            text-shadow: 0 0 10px #ff0066;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            border-radius: 25px;
+        }
+
+        nav a:hover {
+            color: #ff0066;
+            border-color: #ff0066;
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        .main-content {
+            margin-top: 100px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #ff0066, #6600ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .about-text {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 102, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text h2 {
+            color: #ff0066;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight-points {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .highlight-points li {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 0, 102, 0.1);
+            border-left: 4px solid #ff0066;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-points li:hover {
+            background: rgba(255, 0, 102, 0.2);
+            transform: translateX(10px);
+        }
+
+        .skills-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 0, 255, 0.3);
+            margin-bottom: 50px;
+        }
+
+        .skills-section h2 {
+            color: #6600ff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 0, 102, 0.2);
+            border-color: #ff0066;
+        }
+
+        .skill-level {
+            font-weight: bold;
+            color: #ff0066;
+        }
+
+        .tools-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .tools-section h2 {
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-category {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tool-category:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .tool-category h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tool-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .tool-item {
+            padding: 10px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- 3D Canvas -->
+    <div id="canvas-container"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Raghav Mishra</div>
+            <nav>
+                <ul>
+                    <li><a href="3d-portfolio.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <h1 class="page-title fade-in">About Me</h1>
+
+        <div class="about-container">
+            <div class="about-text slide-in-left">
+                <h2>Who I Am</h2>
+                <p>Hello! I'm <strong>Raghav Mishra</strong>, an aspiring researcher and developer with a strong focus on <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and <strong>Deep Learning</strong>. My work is centered on creating practical, impactful solutions by combining research with real-world applications.</p>
+                
+                <ul class="highlight-points">
+                    <li>🔹 Experienced in building AI/ML systems</li>
+                    <li>🔹 Skilled in data analysis, model development & model fine tuning</li>
+                    <li>🔹 Passionate about research-driven innovation and contributing to open-source communities</li>
+                </ul>
+                
+                <p>📌 Open to collaborations in AI research, ML/DL projects, and applied data-driven systems.</p>
+            </div>
+        </div>
+
+        <section class="skills-section slide-in-right">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <div class="skill-level">Advanced</div>
+                </div>
+                <div class="skill-card">
+                    <h3>SQL</h3>
+                    <div class="skill-level">Advanced</div>
+                </div>
+                <div class="skill-card">
+                    <h3>NoSQL</h3>
+                    <div class="skill-level">Advanced</div>
+                </div>
+                <div class="skill-card">
+                    <h3>C</h3>
+                    <div class="skill-level">Intermediate</div>
+                </div>
+                <div class="skill-card">
+                    <h3>C++</h3>
+                    <div class="skill-level">Intermediate</div>
+                </div>
+                <div class="skill-card">
+                    <h3>R</h3>
+                    <div class="skill-level">Beginner</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools-section fade-in">
+            <h2>Tools & Technologies</h2>
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3>Data Analysis Tools</h3>
+                    <div class="tool-list">
+                        <div class="tool-item">Microsoft Excel</div>
+                        <div class="tool-item">Microsoft Power BI</div>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3>Databases</h3>
+                    <div class="tool-list">
+                        <div class="tool-item">MySQL</div>
+                        <div class="tool-item">PostgreSQL</div>
+                        <div class="tool-item">MongoDB</div>
+                        <div class="tool-item">Neo4jDB</div>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="tool-list">
+                        <div class="tool-item">Anaconda</div>
+                        <div class="tool-item">Google Colab</div>
+                        <div class="tool-item">Kaggle</div>
+                        <div class="tool-item">Hugging Face</div>
+                        <div class="tool-item">Langflow</div>
+                        <div class="tool-item">Wandb</div>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3>Research Tools</h3>
+                    <div class="tool-list">
+                        <div class="tool-item">LaTeX</div>
+                        <div class="tool-item">Connected Papers</div>
+                        <div class="tool-item">Zotero</div>
+                        <div class="tool-item">ACL Anthology</div>
+                        <div class="tool-item">Mendeley</div>
+                        <div class="tool-item">Google Scholar</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Custom cursor
+        let cursor = document.getElementById('cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Three.js scene setup
+        let scene, camera, renderer, geometry, material, mesh;
+        let mouseX = 0, mouseY = 0;
+
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+            // Create floating brain-like neural network
+            createNeuralNetwork();
+            animate();
+
+            // Event listeners
+            document.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('resize', onWindowResize);
+        }
+
+        function createNeuralNetwork() {
+            const nodes = [];
+            const connections = [];
+
+            // Create nodes
+            for (let i = 0; i < 20; i++) {
+                const nodeGeometry = new THREE.SphereGeometry(0.05, 8, 8);
+                const nodeMaterial = new THREE.MeshBasicMaterial({ 
+                    color: new THREE.Color().setHSL(Math.random(), 1, 0.5),
+                    transparent: true,
+                    opacity: 0.8
+                });
+                const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+                
+                node.position.set(
+                    (Math.random() - 0.5) * 10,
+                    (Math.random() - 0.5) * 10,
+                    (Math.random() - 0.5) * 5
+                );
+                
+                scene.add(node);
+                nodes.push(node);
+            }
+
+            // Create connections between nodes
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    if (Math.random() > 0.7) {
+                        const points = [
+                            nodes[i].position,
+                            nodes[j].position
+                        ];
+                        
+                        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+                        const material = new THREE.LineBasicMaterial({ 
+                            color: 0xff0066,
+                            transparent: true,
+                            opacity: 0.3
+                        });
+                        const line = new THREE.Line(geometry, material);
+                        scene.add(line);
+                        connections.push(line);
+                    }
+                }
+            }
+
+            window.nodes = nodes;
+            window.connections = connections;
+        }
+
+        function onMouseMove(event) {
+            mouseX = (event.clientX - window.innerWidth / 2) * 0.0005;
+            mouseY = (event.clientY - window.innerHeight / 2) * 0.0005;
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (window.nodes) {
+                window.nodes.forEach((node, index) => {
+                    node.rotation.x += 0.01;
+                    node.rotation.y += 0.01;
+                    node.position.y += Math.sin(Date.now() * 0.001 + index) * 0.002;
+                    
+                    // Mouse interaction
+                    node.position.x += mouseX * 2;
+                    node.position.y += mouseY * 2;
+                });
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            init();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -3,51 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raghav Mishra | AI Engineer Portfolio</title>
+    <title>Raghav Mishra | 3D Interactive Portfolio</title>
     <style>
-        /* Reset and Base Styles */
-        * {
-            box-sizing: border-box;
-        }
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #fff;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(90deg, #ff0000, #000);
-            color: #fff;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-
-        /* Navigation */
-        nav ul {
-            list-style: none;
-            padding: 0;
+            background: linear-gradient(135deg, #000000, #1a0033, #000000);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            background-color: #ff0000;
-            margin: 0;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
         }
-        nav ul li {
-            margin: 10px 15px;
+        
+        .redirect-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 102, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
+        
+        h1 {
+            color: #ff0066;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff0066, #6600ff);
+            border: none;
+            border-radius: 50px;
+            color: white;
             font-weight: bold;
-            transition: color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
         }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 0, 102, 0.4);
+        }
+    </style>
+    <script>
+        // Auto redirect after 3 seconds
+        setTimeout(() => {
+            window.location.href = '3d-portfolio.html';
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div class="redirect-container">
+        <h1>Welcome to My 3D Portfolio!</h1>
+        <p>You're being redirected to the new 3D interactive experience...</p>
+        <a href="3d-portfolio.html" class="btn">Enter Now</a>
+    </div>
+</body>
+</html>
         nav ul li a:hover {
             color: #000;
         }
