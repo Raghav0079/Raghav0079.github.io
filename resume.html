@@ -145,10 +145,6 @@
             box-shadow: 0 10px 30px rgba(255, 0, 102, 0.4);
         }
 
-        .resume-btn.secondary {
-            background: linear-gradient(45deg, #6600ff, #00ffff);
-        }
-
         /* Resume Container */
         .resume-container {
             background: rgba(255, 255, 255, 0.05);
@@ -352,13 +348,6 @@
             border-radius: 10px;
             font-size: 0.7rem;
             color: #ff6600;
-        }
-
-        /* Print styles */
-        @media print {
-            body { background: white; color: black; }
-            .cursor, #canvas-container, header { display: none; }
-            .main-content { margin-top: 0; }
         }
 
         /* Enhanced mobile responsiveness */
@@ -670,14 +659,8 @@
         <h1 class="page-title fade-in">Resume</h1>
 
         <div class="resume-actions fade-in">
-            <a href="javascript:void(0)" class="resume-btn" onclick="window.print()">
-                📄 Print Resume
-            </a>
-            <a href="https://drive.google.com/uc?export=download&amp;id=1C5Vp-D57PFzy0ewEQdgzFoQvbpuU6bQe" class="resume-btn secondary" target="_blank" rel="noopener noreferrer">
-                💾 Download PDF
-            </a>
-            <a href="https://drive.google.com/file/d/1C5Vp-D57PFzy0ewEQdgzFoQvbpuU6bQe/view?usp=sharing" class="resume-btn" target="_blank" rel="noopener noreferrer">
-                👁️ View Online
+            <a href="https://drive.google.com/uc?export=download&id=1C5Vp-D57PFzy0ewEQdgzFoQvbpuU6bQe" class="resume-btn" target="_blank" rel="noopener noreferrer">
+                📥 Download Resume PDF
             </a>
         </div>
 
