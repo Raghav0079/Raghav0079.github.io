@@ -142,8 +142,27 @@
             object-fit: cover;
             flex-shrink: 0;
             transition: all 0.3s ease;
-            background: linear-gradient(45deg, #333, #555);
-            display: block;
+            background: linear-gradient(45deg, #ff0066, #6600ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            position: relative;
+        }
+        
+        .profile-picture::before {
+            content: 'RM';
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .profile-picture.loaded::before {
+            opacity: 0;
         }
         
         .profile-picture:hover {
@@ -533,9 +552,14 @@
         <div class="about-container">
             <div class="about-text slide-in-left">
                 <div class="profile-section">
-                    <img alt="Raghav Mishra Profile Picture" 
-                         class="profile-picture"
-                         loading="eager">
+                    <div class="profile-picture" id="profilePicture">
+                        <img src="https://drive.google.com/thumbnail?id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g&sz=w300-h300" 
+                             alt="Raghav Mishra Profile Picture" 
+                             style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; position: relative; z-index: 2;"
+                             onload="this.parentElement.classList.add('loaded');"
+                             onerror="this.style.display='none'; console.log('Image failed to load');"
+                             loading="eager">
+                    </div>
                     <div class="profile-content">
                         <h2>Who I Am</h2>
                         <p>Hello! I'm <strong>Raghav Mishra</strong>, an aspiring researcher and developer with a strong focus on <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and <strong>Deep Learning</strong>. My work is centered on creating practical, impactful solutions by combining research with real-world applications.</p>
@@ -773,44 +797,51 @@
 
         // Enhanced profile picture loading
         document.addEventListener('DOMContentLoaded', function() {
-            const profilePic = document.querySelector('.profile-picture');
-            if (profilePic) {
-                // Set up multiple fallback URLs
-                const fallbackUrls = [
-                    'https://lh3.googleusercontent.com/d/1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g',
-                    'https://drive.google.com/uc?id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g&export=download',
-                    'https://drive.google.com/uc?export=view&id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g'
+            const profileContainer = document.getElementById('profilePicture');
+            const profileImg = profileContainer?.querySelector('img');
+            
+            if (profileImg && profileContainer) {
+                // Multiple Google Drive URL formats to try
+                const imageUrls = [
+                    'https://drive.google.com/thumbnail?id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g&sz=w300-h300',
+                    'https://lh3.googleusercontent.com/d/1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g=w300-h300',
+                    'https://drive.google.com/uc?export=view&id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g',
+                    'https://drive.google.com/file/d/1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g/view?usp=sharing'
                 ];
                 
-                let currentIndex = 0;
+                let currentUrlIndex = 0;
                 
-                profilePic.onerror = function() {
-                    currentIndex++;
-                    if (currentIndex < fallbackUrls.length) {
-                        console.log(`Trying fallback URL ${currentIndex}: ${fallbackUrls[currentIndex]}`);
-                        this.src = fallbackUrls[currentIndex];
+                function tryNextUrl() {
+                    if (currentUrlIndex < imageUrls.length) {
+                        console.log(`Trying URL ${currentUrlIndex + 1}: ${imageUrls[currentUrlIndex]}`);
+                        profileImg.src = imageUrls[currentUrlIndex];
+                        currentUrlIndex++;
                     } else {
-                        // Final fallback - create a styled placeholder
-                        console.log('All image URLs failed, using placeholder');
-                        this.style.background = 'linear-gradient(45deg, #ff0066, #6600ff)';
-                        this.style.display = 'flex';
-                        this.style.alignItems = 'center';
-                        this.style.justifyContent = 'center';
-                        this.style.fontSize = '14px';
-                        this.style.color = 'white';
-                        this.style.fontWeight = 'bold';
-                        this.innerHTML = '<div style="text-align: center;">RM<br><small>Profile</small></div>';
-                        this.onerror = null; // Prevent further errors
+                        console.log('All image URLs failed, keeping placeholder');
+                        profileImg.style.display = 'none';
                     }
+                }
+                
+                profileImg.onerror = function() {
+                    console.log('Image load failed, trying next URL...');
+                    setTimeout(tryNextUrl, 500); // Small delay before trying next URL
                 };
                 
-                profilePic.onload = function() {
-                    console.log('Profile picture loaded successfully');
-                    this.style.background = 'none';
+                profileImg.onload = function() {
+                    console.log('Profile picture loaded successfully!');
+                    profileContainer.classList.add('loaded');
                 };
                 
-                // Start with the first URL
-                profilePic.src = fallbackUrls[0];
+                // Start with first URL
+                tryNextUrl();
+                
+                // Fallback: if no image loads after 10 seconds, ensure placeholder is visible
+                setTimeout(() => {
+                    if (!profileContainer.classList.contains('loaded')) {
+                        console.log('Using initials placeholder');
+                        profileImg.style.display = 'none';
+                    }
+                }, 10000);
             }
         });
     </script>
