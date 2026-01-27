@@ -483,6 +483,176 @@
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
+        /* Mobile menu toggle button */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ff0066;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        /* Hamburger menu animation */
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        nav {
+            transition: all 0.3s ease;
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 1024px) {
+            .header-content {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .header-content {
+                padding: 0;
+                position: relative;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(15px);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+                border-top: 2px solid rgba(255, 0, 102, 0.3);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                margin: 0;
+            }
+            
+            nav ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 0, 102, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 1rem;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul li a:hover {
+                background: rgba(255, 0, 102, 0.1);
+                padding-left: 30px;
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .page-title { 
+                font-size: 2rem; 
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .mobile-menu-toggle {
+                padding: 8px;
+                min-height: 48px;
+                min-width: 48px;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(255, 0, 102, 0.2);
+            }
+            
+            .mobile-menu-toggle span {
+                width: 22px;
+                height: 2px;
+            }
+            
+            nav ul {
+                padding: 15px;
+            }
+            
+            nav ul li a {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+                min-height: 48px;
+            }
+        }
+        
+        /* Ensure mobile menu is above everything */
+        @media (max-width: 768px) {
+            nav.active {
+                z-index: 999;
+            }
+        }
     </style>
 </head>
 <body>
@@ -496,7 +666,12 @@
     <header>
         <div class="header-content">
             <div class="logo">Raghav Mishra</div>
-            <nav>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mobileNav">
                 <ul>
                     <li><a href="3d-portfolio.html">Home</a></li>
                     <li><a href="about.html">About</a></li>

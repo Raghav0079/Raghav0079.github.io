@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Me - Raghav Mishra | AI Researcher and Machine Learning Engineer</title>
     <meta name="description" content="Learn about Raghav Mishra - AI Researcher and Machine Learning Engineer with expertise in Machine Learning, Deep Learning, data analysis, and model development. Passionate about research-driven innovation.">
     <meta name="keywords" content="about Raghav Mishra, AI researcher, machine learning expert, deep learning, data analysis, Python developer">
@@ -70,12 +70,48 @@
             font-weight: bold;
             color: #ff0066;
             text-shadow: 0 0 10px #ff0066;
+            z-index: 1001;
+        }
+        
+        /* Mobile menu toggle button */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ff0066;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        /* Hamburger menu animation */
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
@@ -86,6 +122,7 @@
             padding: 10px 20px;
             border: 1px solid transparent;
             border-radius: 25px;
+            display: block;
         }
 
         nav a:hover {
@@ -93,6 +130,73 @@
             border-color: #ff0066;
             box-shadow: 0 0 20px rgba(255, 0, 102, 0.3);
             transform: translateY(-2px);
+        }
+        
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(15px);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+                border-top: 2px solid rgba(255, 0, 102, 0.3);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                z-index: 999;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                margin: 0;
+            }
+            
+            nav ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 0, 102, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 1rem;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                transition: all 0.3s ease;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(255, 0, 102, 0.2);
+            }
+            
+            nav ul li a:hover {
+                background: rgba(255, 0, 102, 0.1);
+                padding-left: 30px;
+                transform: none;
+                box-shadow: none;
+            }
         }
 
         /* Main content */
@@ -524,6 +628,176 @@
             from { opacity: 0; transform: translateX(50px); }
             to { opacity: 1; transform: translateX(0); }
         }
+        
+        /* Mobile menu toggle button */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ff0066;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        /* Hamburger menu animation */
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        nav {
+            transition: all 0.3s ease;
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 1024px) {
+            .header-content {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .header-content {
+                padding: 0;
+                position: relative;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(15px);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+                border-top: 2px solid rgba(255, 0, 102, 0.3);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                margin: 0;
+            }
+            
+            nav ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 0, 102, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 1rem;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul li a:hover {
+                background: rgba(255, 0, 102, 0.1);
+                padding-left: 30px;
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .page-title { 
+                font-size: 2rem; 
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .mobile-menu-toggle {
+                padding: 8px;
+                min-height: 48px;
+                min-width: 48px;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(255, 0, 102, 0.2);
+            }
+            
+            .mobile-menu-toggle span {
+                width: 22px;
+                height: 2px;
+            }
+            
+            nav ul {
+                padding: 15px;
+            }
+            
+            nav ul li a {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+                min-height: 48px;
+            }
+        }
+        
+        /* Ensure mobile menu is above everything */
+        @media (max-width: 768px) {
+            nav.active {
+                z-index: 999;
+            }
+        }
     </style>
 </head>
 <body>
@@ -537,7 +811,12 @@
     <header>
         <div class="header-content">
             <div class="logo">Raghav Mishra</div>
-            <nav>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mobileNav">
                 <ul>
                     <li><a href="3d-portfolio.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -660,13 +939,74 @@
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
+        // Enhanced mobile menu toggle with proper event handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (mobileMenuToggle && mobileNav) {
+                console.log('Mobile menu elements found, setting up event listeners');
+                
+                // Toggle mobile menu
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Mobile menu toggle clicked');
+                    
+                    this.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    
+                    // Prevent background scrolling when menu is open
+                    if (mobileNav.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Close mobile menu when clicking on nav links
+                const navLinks = mobileNav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        console.log('Nav link clicked:', link.href);
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Handle escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            } else {
+                console.error('Mobile menu elements not found!');
+            }
+        });
+
         // Custom cursor
         let cursor = document.getElementById('cursor');
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top = e.clientY - 10 + 'px';
-        });
+        // Only show cursor on devices with mouse
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && cursor) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+            });
+        }
 
         // Three.js scene setup
         let scene, camera, renderer, geometry, material, mesh;
@@ -777,7 +1117,38 @@
         // Initialize
         window.addEventListener('load', () => {
             init();
+            
+            // Add touch device detection
+            if ('ontouchstart' in window) {
+                document.body.classList.add('touch-device');
+                console.log('Touch device detected');
+            }
         });
+        
+        // Prevent zoom on double tap for better mobile experience
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Enhanced touch handling for mobile navigation
+        document.addEventListener('touchstart', function(e) {
+            if (e.target.closest('.mobile-menu-toggle') || e.target.closest('nav a')) {
+                e.target.style.transform = 'scale(0.95)';
+            }
+        }, {passive: true});
+        
+        document.addEventListener('touchend', function(e) {
+            if (e.target.closest('.mobile-menu-toggle') || e.target.closest('nav a')) {
+                setTimeout(() => {
+                    e.target.style.transform = '';
+                }, 100);
+            }
+        }, {passive: true});
 
         // Intersection Observer for animations
         const observerOptions = {
