@@ -69,7 +69,12 @@
 <body>
     <header>
         <h1>Welcome to My Portfolio</h1>
-        <nav>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="mobileNav">
             <ul>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -183,6 +188,38 @@
     <footer>
         <p>&copy; 2025 Raghav Mishra</p>
     </footer>
+    
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (mobileMenuToggle && mobileNav) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                });
+                
+                // Close menu when clicking on a link
+                const navLinks = mobileNav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenuToggle.contains(event.target) && !mobileNav.contains(event.target)) {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html><link rel="stylesheet" href="css/styles.css">
 <script src="js/scripts.js"></script>
