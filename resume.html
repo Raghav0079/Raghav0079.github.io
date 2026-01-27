@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Resume - Raghav Mishra | AI Researcher and Machine Learning Engineer CV</title>
     <meta name="description" content="Download or view Raghav Mishra's professional resume - AI Researcher and Machine Learning Engineer with expertise in Machine Learning, Deep Learning, and Data Science.">
     <meta name="keywords" content="Raghav Mishra resume, AI researcher CV, machine learning engineer resume, data scientist CV">
@@ -352,24 +352,104 @@
 
         /* Enhanced mobile responsiveness */
         @media (max-width: 1024px) {
+            .header-content {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
             .resume-actions {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 20px;
+                gap: 15px;
             }
             
-            .action-btn {
+            .resume-btn {
                 flex: 1;
                 min-width: 150px;
+                min-height: 48px;
             }
             
             .page-title {
                 font-size: 2.5rem;
             }
+            
+            .resume-container {
+                padding: 30px 25px;
+            }
         }
         
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .header-content {
+                padding: 0 15px;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+            }
+            
+            nav ul li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 0, 102, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 1rem;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            nav ul li a:hover {
+                background: rgba(255, 0, 102, 0.1);
+                padding-left: 30px;
+            }
+            
+            nav ul li a:before {
+                display: none;
+            }
+            
             .page-title { 
                 font-size: 2rem; 
                 margin-bottom: 30px;
@@ -382,30 +462,14 @@
             
             .contact-info { 
                 flex-direction: column; 
-                gap: 15px; 
+                gap: 12px; 
                 text-align: center;
-                padding: 20px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
                 padding: 15px;
             }
             
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            
-            nav ul li a {
-                padding: 8px 12px;
-                font-size: 0.85rem;
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .contact-item {
+                font-size: 0.9rem;
+                padding: 5px;
             }
             
             .resume-actions {
@@ -414,57 +478,60 @@
                 margin-bottom: 30px;
             }
             
-            .action-btn {
+            .resume-btn {
                 padding: 12px 20px;
                 font-size: 0.9rem;
                 min-height: 48px;
                 width: 100%;
             }
             
-            .resume-section {
-                padding: 25px 20px;
+            .resume-container {
+                padding: 25px 15px;
                 margin-bottom: 20px;
             }
             
-            .resume-section h2 {
+            .section-title {
                 font-size: 1.5rem;
                 margin-bottom: 20px;
             }
             
-            .resume-section h3 {
-                font-size: 1.2rem;
-                margin-bottom: 10px;
-            }
-            
-            .resume-section p,
-            .resume-section li {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-            
-            .skills-list {
+            .skills-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
+            }
+            
+            .skill-category {
+                padding: 15px;
+            }
+            
+            .skill-tag, .tech-tag {
+                font-size: 0.8rem;
+                padding: 8px 12px;
             }
         }
         
         @media (max-width: 480px) {
             .main-content {
-                padding: 15px;
+                padding: 15px 10px;
+                margin-top: 80px;
             }
             
             .header-content {
-                padding: 10px;
+                padding: 10px 15px;
             }
             
-            nav ul {
-                gap: 8px;
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .mobile-menu-toggle {
+                padding: 5px;
             }
             
             nav ul li a {
-                padding: 6px 10px;
-                font-size: 0.8rem;
-                border-radius: 15px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                min-height: 50px;
             }
             
             .page-title {
@@ -477,14 +544,21 @@
                 margin-bottom: 12px;
             }
             
-            .contact-info {
-                padding: 15px;
-                gap: 12px;
+            .resume-title {
+                font-size: 1.1rem;
             }
             
-            .contact-info p {
-                font-size: 0.85rem;
-                margin: 3px 0;
+            .contact-info {
+                padding: 15px 10px;
+                gap: 10px;
+            }
+            
+            .contact-item {
+                font-size: 0.8rem;
+                padding: 8px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border: 1px solid rgba(255, 0, 102, 0.2);
             }
             
             .resume-actions {
@@ -492,48 +566,79 @@
                 margin-bottom: 25px;
             }
             
-            .action-btn {
-                padding: 10px 16px;
-                font-size: 0.85rem;
-                min-height: 48px;
+            .resume-btn {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+                min-height: 50px;
+                border-radius: 25px;
             }
             
-            .resume-section {
-                padding: 20px 15px;
+            .resume-container {
+                padding: 20px 10px;
                 margin-bottom: 15px;
             }
             
-            .resume-section h2 {
+            .section-title {
                 font-size: 1.3rem;
                 margin-bottom: 15px;
+                gap: 10px;
             }
             
-            .resume-section h3 {
-                font-size: 1.1rem;
-                margin-bottom: 8px;
+            .section-icon {
+                font-size: 1.2rem;
             }
             
-            .resume-section p,
-            .resume-section li {
-                font-size: 0.85rem;
-                line-height: 1.5;
-            }
-            
-            .skills-list {
+            .skills-grid {
                 gap: 12px;
+            }
+            
+            .skill-category {
+                padding: 12px;
+            }
+            
+            .skill-tag {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+            
+            .tech-tag {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+            
+            .experience-item, .education-item, .project-item {
+                padding: 15px;
+                margin-bottom: 12px;
             }
         }
         
         /* Touch device optimizations */
+        .touch-device .cursor {
+            display: none !important;
+        }
+        
         @media (pointer: coarse) {
             nav ul li a {
-                min-height: 44px;
-                min-width: 44px;
+                min-height: 48px;
+                min-width: 48px;
+                touch-action: manipulation;
             }
             
-            .action-btn {
-                min-height: 44px;
+            .resume-btn {
+                min-height: 48px;
                 min-width: 120px;
+                touch-action: manipulation;
+            }
+            
+            .mobile-menu-toggle {
+                min-height: 48px;
+                min-width: 48px;
+                touch-action: manipulation;
+            }
+            
+            /* Improve tap targets */
+            button, .resume-btn, nav a {
+                -webkit-tap-highlight-color: rgba(255, 0, 102, 0.2);
             }
         }
         
@@ -597,7 +702,7 @@
             .profile-section {
                 flex-direction: column;
                 text-align: center;
-                gap: 20px;
+                gap: 15px;
             }
             
             .profile-picture {
@@ -612,10 +717,41 @@
         }
         
         @media (max-width: 480px) {
+            .profile-section {
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+            
             .profile-picture {
                 width: 80px;
                 height: 80px;
                 font-size: 16px;
+            }
+            
+            .profile-info {
+                padding: 0 10px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .main-content {
+                padding: 10px 5px;
+            }
+            
+            .resume-container {
+                padding: 15px 8px;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .resume-name {
+                font-size: 1.5rem;
             }
         }
 
@@ -641,7 +777,12 @@
     <header>
         <div class="header-content">
             <div class="logo">Raghav Mishra</div>
-            <nav>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mobileNav">
                 <ul>
                     <li><a href="3d-portfolio.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -894,13 +1035,46 @@
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // Custom cursor
-        let cursor = document.getElementById('cursor');
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on nav links
+            const navLinks = mobileNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                }
+            });
+        }
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top = e.clientY - 10 + 'px';
-        });
+        // Custom cursor (only for desktop)
+        let cursor = document.getElementById('cursor');
+        
+        // Only show cursor on devices with mouse
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            document.addEventListener('mousemove', (e) => {
+                if (cursor) {
+                    cursor.style.left = e.clientX - 10 + 'px';
+                    cursor.style.top = e.clientY - 10 + 'px';
+                }
+            });
+        }
 
         // Three.js scene setup
         let scene, camera, renderer, documents = [];
@@ -994,7 +1168,22 @@
         // Initialize
         window.addEventListener('load', () => {
             init();
+            
+            // Add touch event optimizations for mobile
+            if ('ontouchstart' in window) {
+                document.body.classList.add('touch-device');
+            }
         });
+        
+        // Prevent zoom on double tap for better mobile experience
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
 
         // Scroll animations
         const observerOptions = {
