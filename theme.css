@@ -54,6 +54,7 @@ body[data-theme="light"] {
 
 header {
     background: var(--header-bg);
+    z-index: 1000;
 }
 
 .header-content {
@@ -68,6 +69,56 @@ header {
     nav {
         background: var(--nav-bg);
         border-top: 2px solid var(--nav-border);
+        pointer-events: none;
+    }
+
+    nav.active {
+        pointer-events: all;
+    }
+
+    nav#mobileNav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+
+    nav#mobileNav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav#mobileNav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 0;
+        margin: 0;
+    }
+
+    nav#mobileNav ul li {
+        width: 100%;
+        border-bottom: 1px solid var(--nav-border);
+    }
+
+    nav#mobileNav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav#mobileNav ul li a {
+        padding: 15px 20px;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 50px;
     }
 }
 
