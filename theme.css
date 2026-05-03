@@ -57,6 +57,39 @@ header {
     z-index: 1000;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    background: none;
+    border: none;
+    z-index: 1001;
+    position: relative;
+    touch-action: manipulation;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--accent);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
 .header-content {
     gap: 16px;
 }
@@ -66,17 +99,24 @@ header {
 }
 
 @media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
     nav {
         background: var(--nav-bg);
         border-top: 2px solid var(--nav-border);
+    }
+
+    body.nav-ready nav {
         pointer-events: none;
     }
 
-    nav.active {
+    body.nav-ready nav.active {
         pointer-events: all;
     }
 
-    nav#mobileNav {
+    body.nav-ready nav#mobileNav {
         position: absolute;
         top: 100%;
         left: 0;
@@ -88,29 +128,29 @@ header {
         z-index: 999;
     }
 
-    nav#mobileNav.active {
+    body.nav-ready nav#mobileNav.active {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
     }
 
-    nav#mobileNav ul {
+    body.nav-ready nav#mobileNav ul {
         flex-direction: column;
         padding: 20px;
         gap: 0;
         margin: 0;
     }
 
-    nav#mobileNav ul li {
+    body.nav-ready nav#mobileNav ul li {
         width: 100%;
         border-bottom: 1px solid var(--nav-border);
     }
 
-    nav#mobileNav ul li:last-child {
+    body.nav-ready nav#mobileNav ul li:last-child {
         border-bottom: none;
     }
 
-    nav#mobileNav ul li a {
+    body.nav-ready nav#mobileNav ul li a {
         padding: 15px 20px;
         width: 100%;
         border-radius: 0;
