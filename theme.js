@@ -41,6 +41,11 @@
 
     function applyTheme(theme) {
         root.setAttribute('data-theme', theme);
+        if (document.body) {
+            document.body.setAttribute('data-theme', theme);
+            document.body.style.colorScheme = theme;
+        }
+        root.style.colorScheme = theme;
         setStoredTheme(theme);
         updateButtons(theme);
     }

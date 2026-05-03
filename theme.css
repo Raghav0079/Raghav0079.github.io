@@ -40,6 +40,18 @@ body {
     color: var(--text);
 }
 
+html[data-theme="dark"] body,
+body[data-theme="dark"] {
+    background: linear-gradient(135deg, #05050a, #14001f, #05050a);
+    color: #f5f4f8;
+}
+
+html[data-theme="light"] body,
+body[data-theme="light"] {
+    background: linear-gradient(135deg, #f7f3ff, #e8defa, #f7f3ff);
+    color: #1a1621;
+}
+
 header {
     background: var(--header-bg);
 }
