@@ -182,3 +182,14 @@ textarea::placeholder {
         align-items: center;
     }
 }
+
+.hero-subtitle,
+.hero-description {
+    color: var(--text);
+    opacity: 1;
+}
+
+[data-theme="dark"] .hero-subtitle,
+[data-theme="dark"] .hero-description {
+    opacity: 0.9;
+}
