@@ -226,27 +226,6 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        .theme-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            border-radius: 999px;
-            border: 1px solid var(--border);
-            background: var(--surface-strong);
-            color: var(--text);
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 6px 16px var(--shadow);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: translateY(-1px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 20px var(--shadow);
-        }
 
         main {
             position: relative;
@@ -664,9 +643,6 @@
                 border-radius: 12px;
             }
 
-            .theme-toggle {
-                order: 3;
-            }
         }
 
         @media (max-width: 480px) {
@@ -686,8 +662,7 @@
         @media (pointer: coarse) {
             nav a,
             .btn-primary,
-            .btn-ghost,
-            .theme-toggle {
+            .btn-ghost {
                 min-height: 44px;
             }
         }
@@ -702,7 +677,6 @@
     </style>
     <link rel="stylesheet" href="mobile-optimization.css">
     <link rel="stylesheet" href="theme.css">
-    <script src="theme.js" defer></script>
     <script src="nav.js" defer></script>
 </head>
 <body class="nav-ready">
@@ -737,9 +711,6 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
-                <span class="theme-toggle-icon" aria-hidden="true">Dark</span>
-            </button>
         </div>
     </header>
 
