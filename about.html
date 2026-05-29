@@ -1195,13 +1195,13 @@
                 };
                 
                 // Set the image source - trying the most reliable Google Drive format
-                profileImg.src = 'https://drive.google.com/thumbnail?id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g&sz=w400-h400';
+                profileImg.src = 'WhatsApp%20Image%202026-05-29%20at%205.26.27%20PM.jpeg';
                 
                 // Backup attempt after 3 seconds if first fails
                 setTimeout(() => {
                     if (!profileImg.classList.contains('loaded')) {
                         console.log('Trying alternative URL...');
-                        profileImg.src = 'https://lh3.googleusercontent.com/d/1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g=s400-c';
+                        profileImg.src = 'WhatsApp%20Image%202026-05-29%20at%205.26.27%20PM.jpeg';
                     }
                 }, 3000);
                 
@@ -1209,7 +1209,7 @@
                 setTimeout(() => {
                     if (!profileImg.classList.contains('loaded')) {
                         console.log('Trying final URL format...');
-                        profileImg.src = 'https://drive.google.com/uc?export=view&id=1uxbcUIA0CtBTUHPm0oJAQb-pQPM6I56g';
+                        profileImg.src = 'WhatsApp%20Image%202026-05-29%20at%205.26.27%20PM.jpeg';
                     }
                 }, 6000);
             }
